@@ -1,33 +1,26 @@
 package com.example.springboot;
 
-import java.util.Arrays;
-
-import org.springframework.boot.CommandLineRunner;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.Bean;
+
+import javax.annotation.PostConstruct;
+import java.io.IOException;
 
 @SpringBootApplication
 public class Application {
 
+	@Autowired
+	private BookRepository booksRepo;
+	
 	public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);
 	}
-
-	@Bean
-	public CommandLineRunner commandLineRunner(ApplicationContext ctx) {
-		return args -> {
-
-			System.out.println("Let's inspect the beans provided by Spring Boot:");
-
-			String[] beanNames = ctx.getBeanDefinitionNames();
-			Arrays.sort(beanNames);
-			for (String beanName : beanNames) {
-				System.out.println(beanName);
-			}
-
-		};
+	
+	@PostConstruct
+	public void initApplication() throws IOException {
+		booksRepo.addBook(new Book("111-1","Java 8 Lamdas","Richard Warburton"));
+		booksRepo.addBook(new Book("111-2","An Introduction to Programming in Go","Caleb Doxsey"));
 	}
 
 }
