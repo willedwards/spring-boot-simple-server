@@ -2,17 +2,10 @@
 
 ## one endpoint with a unit test and system test against it.
 
-## How to run
+Ref:
+https://cloud.spring.io/spring-cloud-contract/reference/htmlsingle/#getting-started-first-application
+ 
+ Running ./mvnw clean install automatically generates tests that verify the application compliance with the added contracts. By default, the generated tests are under org.springframework.cloud.contract.verifier.tests..
+ 
 
- mvn spring-boot:run
- 
- results in 
- 
- GETs to:
- 
- http://localhost:8080/api/books
- 
- http://localhost:8080/api/book/111-1
- 
- http://localhost:8080/api/book/111-2
 
