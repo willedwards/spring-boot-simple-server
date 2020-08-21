@@ -40,6 +40,13 @@
 		</dependency>
 		<!-- end::actuator[] -->
 
+		<dependency>
+			<groupId>com.jayway.restassured</groupId>
+			<artifactId>spring-mock-mvc</artifactId>
+			<version>2.9.0</version>
+			<scope>test</scope>
+		</dependency>
+
 		<!-- tag::tests[] -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
